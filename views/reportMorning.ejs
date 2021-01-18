@@ -1,0 +1,45 @@
+<%- include('./partials/header.ejs', {auth: auth}) %>
+<h1>Report morning behaviour</h1>
+
+<% if (errors && errors.length > 0) { %>
+    <ul>
+      <% errors.forEach((error) => { %>
+        <li><%= error %></li>
+      <% }); %>
+    </ul>
+<% } %>
+
+<form method="POST" action="/behavior/reporting/morning">
+    <label>Sleeping hours: number or decimal (max 2 decimals). Examples 8, 10.5, 5.75</label>
+    <input type="text" name="sleep_dur" value="<%= sleep_dur %>"/>
+    <br/>
+    <label>Sleep quality: number from 1 (very poor) to 5 (excellent)</label>
+    <input type="range" min="1" max="5" value="<%= sleep_qua %>" name="sleep_qua" id="sleep_range" />
+    <span id="sleep_demo"></span>
+    <script>
+        let slider1 = document.getElementById("sleep_range");
+        let output1 = document.getElementById("sleep_demo");
+        output1.innerHTML = slider1.value;
+        slider1.oninput = function() {
+            output1.innerHTML = this.value;
+        } 
+    </script>
+    <br/>
+    <label>Generic mood: number from 1 (very poor) to 5 (excellent)</label>
+    <input type="range" min="1" max="5" value="<%= mood %>" name="mood" id="mood_range" />
+    <span id="mood_demo"></span>
+    <script>
+        let slider2 = document.getElementById("mood_range");
+        let output2 = document.getElementById("mood_demo");
+        output2.innerHTML = slider2.value;
+        slider2.oninput = function() {
+            output2.innerHTML = this.value;
+        } 
+    </script>
+    <br/>
+    <label>Date</label>
+    <input type="date" name="date" value="<%= date %>"/> 
+    <br/>
+    <input type="submit" value="Report" />
+</form>
+<%- include('./partials/footer.ejs') %>

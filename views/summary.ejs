@@ -1,0 +1,29 @@
+<%- include('./partials/header.ejs', {auth: auth}) %>
+<h1>Summary</h1>
+
+<form method="POST" action="/behavior/summary">
+    <label>Select week</label>
+    <input type="week" name="week" />
+    <input type="submit" value="Show summary for selected week" />
+</form>
+
+<form method="POST" action="/behavior/summary">
+    <label>Select month</label>
+    <input type="month" name="month" />
+    <input type="submit" value="Show summary for selected month" />
+</form>
+
+<h2>Week <%= weekNumber %></h2>
+<p>Average generic mood: <%= week_mood %></p>
+<p>Average sleep duration: <%= week_sleep_dur %></p>
+<p>Average sleep quality: <%= week_sleep_qua %></p>
+<p>Average time spent on sports and exercise: <%= week_active %></p>
+<p>Average time spent studying: <%= week_study %></p>
+
+<h2>Month <%= month %></h2>
+<p>Average generic mood: <%= m_mood %></p>
+<p>Average sleep duration: <%= m_sleep_dur %></p>
+<p>Average sleep quality: <%= m_sleep_qua %></p>
+<p>Average time spent on sports and exercise: <%= m_active %></p>
+<p>Average time spent studying: <%= m_study %></p>
+<%- include('./partials/footer.ejs') %>

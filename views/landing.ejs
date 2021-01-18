@@ -1,0 +1,27 @@
+<%- include('./partials/header.ejs', {auth: auth}) %>
+<h1>Welcome to Routine & Rhythm Tracker!</h1>
+<p>- a tool for self-monitoring -</p>
+<div>
+    <% if (trend !== '') { %>
+    <h3>Things are looking <%= trend %> today</h3>
+    <% } %>
+    <h4>Users' average mood today: <%= today %></h4>
+    <h4>Users' average mood yesterday: <%= yesterday %></h4>
+</div>
+<a href="/behavior/reporting">Click here to add report</a>
+<div>
+    <a href="auth/registration">Click here to register</a>
+    <br/>
+    <a href="/auth/login">Click here to log in</a>
+<h3>View personal weekly & monthly summaries</h3>
+<h3>Daily morning reports include</h3>
+<li>Generic mood</li>
+<li>Sleep duration and sleep quality</li>
+<h3>Daily evening reports include</h3>
+<li>Generic mood</li>
+<li>Time spent on sports and exercise</li>
+<li>Time spent studying</li>
+<li>Regularity and quality of eating</li>
+</div>
+
+<%- include('./partials/footer.ejs') %>

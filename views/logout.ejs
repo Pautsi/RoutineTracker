@@ -1,0 +1,5 @@
+<%- include('./partials/header.ejs', {auth: auth}) %>
+<form method="POST" action="/auth/logout">
+    <input type="submit" value="Log out" />
+</form>
+<%- include('./partials/footer.ejs') %>

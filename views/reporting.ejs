@@ -1,0 +1,19 @@
+<%- include('./partials/header.ejs', {auth: auth}) %>
+<h1>Select report time</h1>
+
+<% if (morning) { %>
+    <h2>Morning report done today</h2>
+    <a href="/behavior/reporting/morning">Change report for today or create new for another date</a>
+<% } else { %>
+    <h2>No morning report done today</h2>
+    <a href="/behavior/reporting/morning">Add morning report</a>
+<% } %>
+
+<% if (evening) { %>
+    <h2>Evening report done today</h2>
+    <a href="/behavior/reporting/evening">Change report for today or create new for another date</a>
+<% } else { %>
+    <h2>No evening report done today</h2>
+    <a href="/behavior/reporting/evening">Add evening report</a>
+<% } %>
+<%- include('./partials/footer.ejs') %>
